@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Redmine Hourly Logger",
+  "version": "1.0",
+  "description": "Logs time to Redmine every hour or on demand.",
+  "permissions": ["storage", "scripting", "alarms"],
+  "host_permissions": ["*://*/time_entries.json"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Log Time"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
